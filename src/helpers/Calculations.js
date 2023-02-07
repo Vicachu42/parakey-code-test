@@ -1,30 +1,30 @@
 export const getMinimumTemperature = (data) => {
-  const temp = data.map(item => item['main']['temp'])
-  return Math.round(Math.min(...temp))
+  const temperatures = data.map(item => item['main']['temp'])
+  return Math.round(Math.min(...temperatures))
 }
 
 export const getMaximumTemperature = (data) => {
-  const temp = data.map(item => item['main']['temp'])
-  return Math.round(Math.max(...temp))
+  const temperatures = data.map(item => item['main']['temp'])
+  return Math.round(Math.max(...temperatures))
 }
 
 export const getMedianTemperature = (data) => {
-  const temp = data.map(item => item['main']['temp'])
-  if (temp.length === 0) {
+  const temperatures = data.map(item => item['main']['temp'])
+  if (temperatures.length === 0) {
     return
   }
 
-  temp.sort((a, b) => a - b)
-  const midpoint = Math.floor(temp.length / 2)
-  const median = temp.length % 2 === 1 ?
-    temp[midpoint] :
-    (temp[midpoint - 1] + temp[midpoint]) / 2
+  temperatures.sort((a, b) => a - b)
+  const midpoint = Math.floor(temperatures.length / 2)
+  const median = temperatures.length % 2 === 1 ?
+    temperatures[midpoint] :
+    (temperatures[midpoint - 1] + temperatures[midpoint]) / 2
   return Math.round(median)
 }
 
 export const getAverageTemperature = (data) => {
-  const temp = data.map(item => item['main']['temp'])
+  const temperatures = data.map(item => item['main']['temp'])
 
-  const average = temp.reduce((a, b) => a + b, 0) / temp.length
+  const average = temperatures.reduce((a, b) => a + b, 0) / temperatures.length
   return Math.round(average)
 }

@@ -10,7 +10,8 @@ const Forecasts = () => {
       const listedWeather = await fetchForecasts()
       setForecasts(listedWeather)
     }
-    listWeatherData()
+
+    void listWeatherData()
   }, [])
 
   return (
