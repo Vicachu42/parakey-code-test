@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <p>{process.env.WEATHER_API_KEY}</p>
       <Forecasts />
     </div>
   )
